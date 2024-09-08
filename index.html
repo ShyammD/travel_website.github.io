@@ -13,15 +13,22 @@
         <nav>
             <div class="logo">Travel Explorer</div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Destinations</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#" class="btn">Sign In</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#booking" class="btn">Book Your Next Trip</a></li>
+                <li><button id="theme-toggle" class="btn">🌙</button></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Our Travel Website</h1>
+        <p>Discover amazing destinations...</p>
+    </section>
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -32,6 +39,7 @@
     </section>
 
     <!-- Featured Destinations -->
+    <section id="destinations"></section>
     <section class="destinations">
         <h2>Featured Destinations</h2>
         <div class="destination-grid">
@@ -54,6 +62,7 @@
     </section>
 
     <!-- Blog Section -->
+    <section id="blog"></section>
     <section class="blog">
         <h2>Latest Travel Articles</h2>
         <div class="blog-grid">
@@ -78,7 +87,52 @@
         </div>
     </section>
 
+    <!-- Booking Section -->
+    <section id="booking"></section>
+    <section class="booking">
+    <h2>Book Your Next Trip</h2>
+    <form id="booking-form">
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" required>
+        </div>
+        <div class="form-group">
+            <label for="origin">Origin</label>
+            <input type="text" id="origin" name="origin" required>
+        </div>
+        <div class="form-group">
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" name="destination" required>
+        </div>
+        <div class="form-group">
+            <label for="departure-date">Departure Date</label>
+            <input type="date" id="departure-date" name="departure-date" required>
+        </div>
+        <div class="form-group">
+            <label for="return-date">Return Date</label>
+            <input type="date" id="return-date" name="return-date" required>
+        </div>
+        <button type="submit" class="btn-submit">Book Now</button>
+    </form>
+    <div id="confirmation-message" class="hidden">
+        <p>Thank you for choosing Travel Explorer! Someone will contact you shortly.</p>
+    </div>
+    </section>
+
     <!-- Contact Form Section -->
+    <section id="contact"></section>
     <section class="contact">
         <h2>Contact Us</h2>
         <form action="#" method="post">
@@ -103,7 +157,7 @@
         <h2>What Our Travelers Say</h2>
         <div class="testimonial-grid">
             <div class="testimonial-item">
-                <p>"Travel Explorer made my trip to Europe unforgettable. Everything was perfectly organized!"</p>
+                <p>"Travel Explorer made my trip to Europe unforgettable. Everything was perfectly organised!"</p>
                 <h4>- Sarah W.</h4>
             </div>
             <div class="testimonial-item">
@@ -117,14 +171,38 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about-us" class="hidden">
+        <h2>About Us</h2>
+        <p>We are Travel Explorer, dedicated to providing the best travel experiences. Our team is passionate about travel and committed to helping you discover the world.</p>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section id="privacy-policy" class="hidden">
+        <h2>Privacy Policy</h2>
+        <p>We value your privacy. This policy explains how we collect, use, and protect your information when you use our website.</p>
+    </section>
+
+    <!-- Terms of Service Section -->
+    <section id="terms-of-service" class="hidden">
+        <h2>Terms of Service</h2>
+        <p>By using our website, you agree to our terms of service. Please read them carefully to understand your rights and obligations.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-info" class="hidden">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, please reach out to us at contact@travelexplorer.com or call us at 123-456-7890.</p>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-links">
-                <a href="#">About Us</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
+                <a href="#" data-section="about-us">About Us</a>
+                <a href="#" data-section="privacy-policy">Privacy Policy</a>
+                <a href="#" data-section="terms-of-service">Terms of Service</a>
+                <a href="#" data-section="contact-info">Contact</a>
             </div>
             <div class="social-media">
                 <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
@@ -133,6 +211,12 @@
             </div>
         </div>
         <p>&copy; 2024 Travel Explorer. All rights reserved.</p>
-    </footer>
+    </footer>    
+
+    <script>
+        AOS.init({
+            duration: 1200, // Animation duration
+        });
+    </script>
 </body>
 </html>
