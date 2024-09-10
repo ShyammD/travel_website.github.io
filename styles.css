@@ -483,6 +483,11 @@ footer {
 
 .social-media {
     margin-top: 1rem;
+}   
+
+.social-media img {
+    width: 30px; 
+    height: 30px; 
 }
 
 @media (max-width: 768px) {
