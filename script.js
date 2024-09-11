@@ -1,21 +1,17 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('header');
     const sections = document.querySelectorAll('section');
     const bookingForm = document.getElementById('booking-form');
     const confirmationMessage = document.getElementById('confirmation-message');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const footerLinks = document.querySelectorAll('.footer-links a');
 
     // Change nav background on scroll
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
+        nav.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Scroll animations
+    // Scroll animations using Intersection Observer
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -29,45 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle booking form submission
-    bookingForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        // Display confirmation message
-        confirmationMessage.classList.remove('hidden');
-        // Optionally, you can reset the form here if needed
-        bookingForm.reset();
-    });
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            // Display confirmation message
+            if (confirmationMessage) {
+                confirmationMessage.classList.remove('hidden');
+            }
+            // Reset the form if needed
+            bookingForm.reset();
+        });
+    }
 
     // Toggle Dark/Light Mode
-    const themeToggleBtn = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
-
     document.documentElement.setAttribute('data-theme', currentTheme);
 
-    themeToggleBtn.addEventListener('click', () => {
-        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    });
-
-    // Handle footer link clicks
-    const footerLinks = document.querySelectorAll('.footer-links a');
-    
-    footerLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-
-            // Hide all sections
-            sections.forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // Show the clicked section
-            const sectionId = link.getAttribute('data-section');
-            const sectionToShow = document.getElementById(sectionId);
-            if (sectionToShow) {
-                sectionToShow.classList.remove('hidden');
-                sectionToShow.classList.add('show');
-            }
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
-    });
+    }
 });
