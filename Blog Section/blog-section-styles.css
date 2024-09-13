@@ -1,54 +1,110 @@
 /* General styles for blog pages */
-.blog-content {
-    width: 80%; /* Set the width to be 80% of the container */
-    margin: 0 auto; /* Center the section horizontally */
-    padding: 20px; /* Add padding for spacing */
-    text-align: center; /* Center text inside the section */
+.container {
+    max-width: 800px; /* Limit the maximum width of the content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px;
+    text-align: center; /* Center the text and images */
 }
 
 /* Style for blog images */
-.blog-content img {
-    max-width: 100%; /* Ensure the image doesn't exceed the container's width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    margin: 20px 0; /* Add margin for spacing above and below the image */
+.container img {
+    max-width: 80%; /* Set the image width to 80% of the container */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Ensure it's treated as a block element */
+    margin: 0 auto 20px; /* Center the image and add bottom margin */
 }
 
 /* Style for blog headings */
-.blog-content h2, .blog-content h3 {
-    margin: 20px 0; /* Add margin for spacing */
-    color: #333; /* Set a dark color for better readability */
+.container h1, .container h2 {
+    margin: 20px 0;
+    color: #333;
+    text-align: center; /* Center the headings */
 }
 
 /* Style for blog paragraphs */
-.blog-content p {
-    line-height: 1.6; /* Improve readability with line-height */
-    color: #555; /* Set a slightly lighter color for text */
+.container p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 /* Navigation styles specific to blog pages */
-.blog-nav {
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center the navigation items */
-    margin-bottom: 20px; /* Add margin below the navigation */
+nav {
+    background-color: #333; /* Set the nav bar background to match the logo background */
+    padding: 10px 20px; /* Adjust padding for spacing */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    display: flex; /* Use flexbox to align logo and nav items */
+    justify-content: flex-end; /* Move the nav items to the right side */
+    align-items: center; /* Vertically center the items */
+    position: absolute; /* Positioning it absolutely */
+    top: 20px; /* Move it slightly down from the top */
+    right: 0; /* Align it to the far right */
+    width: 100%; /* Full width of the page */
+    box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
-.blog-nav a {
-    text-decoration: none; /* Remove underline from links */
-    color: #007bff; /* Set a color for links */
-    margin: 0 10px; /* Add horizontal spacing between links */
-    font-weight: bold; /* Make links bold */
+/* Logo styles */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* Logo text color */
+    text-decoration: none;
+    margin-right: auto; /* Pushes the logo to the left */
 }
 
-.blog-nav a:hover {
-    text-decoration: underline; /* Add underline on hover */
-    color: #0056b3; /* Darker color on hover */
+/* Navigation menu styles */
+nav ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Align nav items horizontally */
 }
 
-/* Additional styling for images in blog content */
-.blog-content img {
-    max-width: 80%; /* Adjust to make images smaller */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure block display for margins */
-    margin: 0 auto; /* Center the image */
+nav ul li {
+    margin: 0 15px; /* Space between links */
+}
+
+/* Navigation link styles */
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Make nav links white */
+    font-weight: normal; /* Remove bold */
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #f1f1f1; /* Slight color change on hover */
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] .container {
+    background-color: #222; /* Dark background for the container */
+    color: #ddd; /* Light text color */
+}
+
+[data-theme="dark"] .container img {
+    filter: brightness(0.8); /* Darken images for better contrast */
+}
+
+[data-theme="dark"] .container h1, 
+[data-theme="dark"] .container h2 {
+    color: #eee; /* Lighter text for headings */
+}
+
+[data-theme="dark"] .container p {
+    color: #ccc; /* Lighter text for paragraphs */
+}
+
+/* Dark mode styles that do not affect the nav bar */
+[data-theme="dark"] footer {
+    color: #aaa; /* Lighter text color for footer */
 }

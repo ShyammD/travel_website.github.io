@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('header');
     const sections = document.querySelectorAll('section');
     const bookingForm = document.getElementById('booking-form');
-    const confirmationMessage = document.getElementById('confirmation-message');
+    const contactForm = document.getElementById('contact-form');
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const footerLinks = document.querySelectorAll('.footer-links a');
+    const bookingConfirmationMessage = document.getElementById('booking-confirmation-message');
+    const contactConfirmationMessage = document.getElementById('contact-confirmation-message');
 
     // Change nav background on scroll
     window.addEventListener('scroll', () => {
@@ -28,24 +29,48 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bookingForm) {
         bookingForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            // Display confirmation message
-            if (confirmationMessage) {
-                confirmationMessage.classList.remove('hidden');
+            // Display booking confirmation message
+            if (bookingConfirmationMessage) {
+                bookingConfirmationMessage.classList.remove('hidden');
+                bookingConfirmationMessage.classList.add('show');
             }
             // Reset the form if needed
             bookingForm.reset();
         });
     }
 
-    // Toggle Dark/Light Mode
+    // Handle contact form submission
+    if (contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            // Display contact confirmation message
+            if (contactConfirmationMessage) {
+                contactConfirmationMessage.classList.remove('hidden');
+                contactConfirmationMessage.classList.add('show');
+            }
+            // Reset the form if needed
+            contactForm.reset();
+        });
+    }
+
+    // Function to update the theme icon
+    function updateThemeIcon() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        themeToggleBtn.textContent = currentTheme === 'dark' ? '🌞' : '🌜';
+    }
+
+    // Set initial theme and icon
     const currentTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon();
 
+    // Toggle Dark/Light Mode
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
         });
     }
 });

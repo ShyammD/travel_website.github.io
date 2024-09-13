@@ -20,6 +20,7 @@
                 <li><a href="/travel_website.github.io/Footer Section/privacy-policy.html">Privacy Policy</a></li>
                 <li><a href="/travel_website.github.io/Footer Section/terms-of-service.html">Terms of Service</a></li>
                 <li><a href="/travel_website.github.io/Footer Section/contact-us.html">Contact Us</a></li>
+                <li><button id="theme-toggle" class="btn">🌙</button></li>
             </ul>
         </nav>
     </header>
@@ -52,7 +53,7 @@
 
     <!-- Contact Form Section -->
     <section id="contact" class="contact">
-        <h2>Send Us a Message</h2>
+        <h2>Contact Us</h2>
         <form id="contact-form">
             <div class="form-group">
                 <label for="name">Your Name</label>
@@ -67,6 +68,10 @@
                 <textarea id="message" name="message" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn-submit">Send Message</button>
+            
+            <div id="contact-confirmation-message" class="hidden">
+                <p>Thank you for sending us a message! Our team will get back to you soon!</p>
+            </div>
         </form>
     </section>
 
