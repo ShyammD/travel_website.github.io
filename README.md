@@ -29,7 +29,7 @@ Welcome to the Travel Website, a project designed to help users discover excitin
 ## **How to Run the Project**
 
 1. Clone the repository:
-   - git clone https://github.com/Shyam-Dattani/travel_website.github.io.git
+   - git clone https://github.com/ShyammD/travel_website.github.io.git
 
 2. Open the main file index.html in your web browser to run the website locally:
    - Navigate to the project directory and double-click on the index.html file to open it.
